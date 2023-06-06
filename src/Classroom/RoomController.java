@@ -44,7 +44,7 @@ public class RoomController implements Initializable {
 
 
         try{
-            Connection conn = new Connecter().getConn();
+            Connection conn = Connecter.getInstance().getConn();
 
             // query
             Statement stt = conn.createStatement();

@@ -1,5 +1,6 @@
 package javafx;
 
+import daopattern.StudentResponsitory;
 import database.Connecter;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
@@ -28,25 +29,13 @@ public class FormController {
             String name = txtName.getText();
             String email = txtEmail.getText();
             String tel = txtTel.getText();
-
             Student sv = new Student(name,email,tel);
-//            HomeController.listStudents.add(sv);
-            // add to db
-            Connection conn = new Connecter().getConn();
+            if(StudentResponsitory.getInstance().create(sv))
+                backToList(null);
+            else
+                throw new Exception("Khong the tao moi sinh vien");
 
-            // query
-//            Statement stt = conn.createStatement();
-//            String sql = "insert into students(name,email,tel) values('"+
-//                    sv.getName()+"','"+sv.getEmail()+"','"+sv.getTel()+"')";
-//            stt.executeUpdate(sql);
-            String sql = "insert into students(name,email,tel) values(?,?,?)";
-            PreparedStatement stt = conn.prepareStatement(sql);
-            stt.setString(1,sv.getName());
-            stt.setString(2,sv.getEmail());
-            stt.setString(3,sv.getTel());
-            stt.executeUpdate();
 
-            backToList(null);
         }catch (Exception e){
             Alert alert = new Alert(Alert.AlertType.ERROR);
             alert.setContentText(e.getMessage());

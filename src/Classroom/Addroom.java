@@ -29,7 +29,7 @@ public class Addroom {
             String name = txtName.getText();
             String room = txtRoom.getText();
             Room r = new Room(name,room);
-            Connection conn = new Connecter().getConn();
+            Connection conn = Connecter.getInstance().getConn();
             String sql = "insert into classrooms(name,room) values(?,?) ";
             PreparedStatement stt = conn.prepareStatement(sql);
             stt.setString(1,r.getName());
