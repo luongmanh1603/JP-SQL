@@ -2,6 +2,8 @@ package javafx;
 
 import daopattern.StudentResponsitory;
 import database.Connecter;
+import enums.RepositoryType;
+import factory.RepositoryFactory;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -30,7 +32,7 @@ public class FormController {
             String email = txtEmail.getText();
             String tel = txtTel.getText();
             Student sv = new Student(name,email,tel);
-            if(StudentResponsitory.getInstance().create(sv))
+            if(RepositoryFactory.createRepositoryInstance(RepositoryType.STUDENT).create(sv))
                 backToList(null);
             else
                 throw new Exception("Khong the tao moi sinh vien");

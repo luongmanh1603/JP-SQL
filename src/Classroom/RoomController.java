@@ -15,6 +15,7 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
+import roomDAO.RoomRespon;
 
 import java.net.URL;
 import java.sql.Connection;
@@ -44,21 +45,9 @@ public class RoomController implements Initializable {
 
 
         try{
-            Connection conn = Connecter.getInstance().getConn();
 
-            // query
-            Statement stt = conn.createStatement();
-            String sql = "select * from classrooms";
-            ResultSet rs = stt.executeQuery(sql);
             ObservableList<Room> list = FXCollections.observableArrayList();
-            while (rs.next()){
-                int id = rs.getInt("id");
-                String name = rs.getString("name");
-                String room = rs.getString("room");
-
-                Room r = new Room(id,name,room);
-                list.add(r);
-            }
+           list.addAll(RoomRespon.getInstance().getAll());
       tvR.setItems(list);
         }catch (Exception e){
             System.out.println("error:"+e.getMessage());

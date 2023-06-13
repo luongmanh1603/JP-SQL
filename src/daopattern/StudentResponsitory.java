@@ -16,8 +16,8 @@ public class StudentResponsitory implements IResponsitory<Student> {
     private StudentResponsitory(){
 
     }
-    public static StudentResponsitory getInstance(){
-        if (instance == null){
+    public static StudentResponsitory getInstance() {
+        if (instance == null) {
             instance = new StudentResponsitory();
         }
         return instance;

@@ -10,7 +10,7 @@
       <TextField  layoutX="135.0" layoutY="38.0" promptText="id" />
       <TextField fx:id="txtName"  layoutX="135.0" layoutY="102.0" promptText="name" />
       <TextField fx:id="txtRoom" layoutX="135.0" layoutY="185.0" promptText="room" />
-      <Button onAction="#backtoList" layoutX="402.0" layoutY="87.0" mnemonicParsing="false" text="Submit" />
-      <Button onAction="#submit" layoutX="402.0" layoutY="100.0" mnemonicParsing="false" text="Submit" />
+      <Button onAction="#backtoList" layoutX="402.0" layoutY="87.0" mnemonicParsing="false" text="Back" />
+      <Button onAction="#submit" layoutX="402.0" layoutY="300.0" mnemonicParsing="false" text="Submit" />
    </children>
 </Pane>

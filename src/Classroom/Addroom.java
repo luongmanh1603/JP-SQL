@@ -7,6 +7,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.TextField;
+import roomDAO.RoomRespon;
 
 import java.io.IOException;
 import java.sql.Connection;
@@ -29,18 +30,13 @@ public class Addroom {
             String name = txtName.getText();
             String room = txtRoom.getText();
             Room r = new Room(name,room);
-            Connection conn = Connecter.getInstance().getConn();
-            String sql = "insert into classrooms(name,room) values(?,?) ";
-            PreparedStatement stt = conn.prepareStatement(sql);
-            stt.setString(1,r.getName());
-            stt.setString(2, r.getRoom());
-            stt.executeUpdate();
-            backtoList(null);
+            if (RoomRespon.getInstance().create(r))
+                backtoList(null);
+            else throw new Exception("Not");
         } catch (Exception e) {
             Alert alert = new Alert(Alert.AlertType.ERROR);
             alert.setContentText(e.getMessage());
             alert.show();
-            throw new RuntimeException(e);
         }
     }
 }

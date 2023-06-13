@@ -2,6 +2,8 @@ package javafx;
 
 import daopattern.StudentResponsitory;
 import database.Connecter;
+import enums.RepositoryType;
+import factory.RepositoryFactory;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -51,7 +53,7 @@ public class HomeController implements Initializable {
         try{
 
             ObservableList<Student> list = FXCollections.observableArrayList();
-           list.addAll(StudentResponsitory.getInstance().getAll());
+           list.addAll(RepositoryFactory.createRepositoryInstance(RepositoryType.STUDENT).getAll());
 
            tbV.setItems(list);
         }catch (Exception e){
