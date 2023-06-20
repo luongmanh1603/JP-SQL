@@ -31,7 +31,6 @@ public class StudentResponsitory implements IResponsitory<Student> {
             Statement stt = conn.createStatement();
             String sql = "select * from students";
             ResultSet rs = stt.executeQuery(sql);
-            ObservableList<Student> list = FXCollections.observableArrayList();
             while (rs.next()) {
                 int id = rs.getInt("id");
                 String name = rs.getString("name");
@@ -59,7 +58,7 @@ public class StudentResponsitory implements IResponsitory<Student> {
             stt.executeUpdate();
             return  true;
         } catch (Exception e){
-
+            System.out.println(e.getMessage());
         }
 
         return false;
