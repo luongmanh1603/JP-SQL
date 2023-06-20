@@ -9,6 +9,7 @@ import org.mindrot.jbcrypt.BCrypt;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.util.Locale;
 
 public class Main extends Application {
     public static void main(String[] args) {
@@ -50,6 +51,8 @@ boolean check = BCrypt.checkpw(pass,dbPass);
     @Override
     public void start(Stage primaryStage) throws Exception {
         mainStage = primaryStage;
+        Locale en = new Locale("en","VN");
+        Locale.setDefault(en);
         Parent root = FXMLLoader.load(getClass().getResource("home.fxml"));
         primaryStage.setScene(new Scene(root,600,400));
         primaryStage.setTitle("T2210A JavaFX Demo");
