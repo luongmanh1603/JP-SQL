@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="javafx.HomeController">
+    <children>
+
+        <Text fx:id="lbPage" layoutX="179.0" layoutY="59.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Student List">
+            <font>
+                <Font size="18.0" />
+            </font>
+        </Text>
+            <Button fx:id="lbCreate" layoutX="455.0" layoutY="34.0" mnemonicParsing="false" onAction="#goToForm" style="-fx-background-color: red;" text="Create student" textFill="WHITE">
+            <font>
+                <Font size="15.0" />
+            </font>
+
+        </Button>
+      <TableView fx:id="tbV" layoutX="25.0" layoutY="100.0" prefHeight="297.0" prefWidth="547.0">
+        <columns>
+          <TableColumn fx:id="tcID" prefWidth="75.0" text="Id" />
+            <TableColumn fx:id="tcName" prefWidth="75.0" text="Name" />
+          <TableColumn fx:id="tcEmail" prefWidth="75.0" text="Email" />
+            <TableColumn fx:id="tcTel" prefWidth="75.0" text="Tel" />
+            <TableColumn fx:id="tcAction" prefWidth="75.0" text="Action" />
+        </columns>
+      </TableView>
+      <Text fx:id="txtMin" layoutX="25.0" layoutY="46.0" strokeType="OUTSIDE" strokeWidth="0.0" text="10" wrappingWidth="50.171875">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </Text>
+      <Text fx:id="txtSec" layoutX="75.0" layoutY="47.0" strokeType="OUTSIDE" strokeWidth="0.0" text="10">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </Text>
+      <Text layoutX="59.0" layoutY="48.0" strokeType="OUTSIDE" strokeWidth="0.0" text=".">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </Text>
+      <Text layoutX="59.0" layoutY="30.0" strokeType="OUTSIDE" strokeWidth="0.0" text=".">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </Text>
+      <ComboBox fx:id="cbLang" onAction="#chooseLang" layoutX="13.0" layoutY="54.0" prefHeight="31.0" prefWidth="117.0" promptText="Lang" />
+
+    </children>
+</Pane>
